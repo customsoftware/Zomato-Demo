@@ -6,7 +6,7 @@
 //  Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct ZomatoResources {
     struct Strings {
@@ -26,6 +26,8 @@ struct ZomatoResources {
         static let enumCaptionRating = NSLocalizedString("User Rating", comment: "")
         static let enumCaptionCost = NSLocalizedString("Cost", comment: "")
         static let enumCaptionMap = NSLocalizedString("Map", comment: "")
+        static let navigateBackButton = NSLocalizedString("Back", comment: "")
+        static let navigateHomeButton = NSLocalizedString("Home", comment: "")
     }
     
     struct Keys {
@@ -35,5 +37,14 @@ struct ZomatoResources {
         static let mapCellID = "mapCellID"
         static let ratingCellID = "ratingCellID"
         static let costCellID = "costCellID"
+    }
+}
+
+
+extension UIViewController {
+    func setBackButtonText(to text: String) {
+        let backItem = UIBarButtonItem()
+        backItem.title = text
+        navigationItem.backBarButtonItem = backItem
     }
 }

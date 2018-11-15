@@ -58,6 +58,16 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueID = segue.identifier else { return }
+        switch segueID {
+        case self.segueID:
+            setBackButtonText(to: ZomatoResources.Strings.navigateHomeButton)
+            
+        default:()
+        }
+    }
+    
     private func setupMap(for location: CLLocation) {
         searchMap.showsUserLocation = true
         searchMap.showsBuildings = true

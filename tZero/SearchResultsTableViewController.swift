@@ -22,6 +22,7 @@ class SearchResultsTableViewController: UITableViewController {
                 let userInfo = sender as? [String: Any],
                 let selectedRestaurant = userInfo[ZomatoResources.Keys.userInfoRestaurantKey] as? ZomatoRestaraunt {
                 detailVC.displayedRestaurant = selectedRestaurant
+                setBackButtonText(to: ZomatoResources.Strings.navigateBackButton)
             }
             
         default:()
