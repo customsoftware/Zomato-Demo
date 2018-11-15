@@ -15,7 +15,6 @@ protocol QueryCompleted: NSObjectProtocol {
 
 class ZomatoRestarauntManager: NSObject {
     static let shared = ZomatoRestarauntManager()
-    let cellID = "summaryCellID"
     let restEngine = ZomatoRestEngine()
     private(set) var restarauntList = [ZomatoRestaraunt]()
     var totalNumberOfHits: Int = 0
@@ -68,7 +67,6 @@ class ZomatoRestarauntManager: NSObject {
     }
     
     func buildRestarauntList(from json: [String: Any]) {
-//        extractSummary(from: json)
         extractRestaraunts(from: json)
         totalNumberOfHits = restarauntList.count
     }
@@ -87,9 +85,9 @@ class ZomatoRestarauntManager: NSObject {
             currentStart = start
             currentCount = current
         }
-        guard let totalFound = json["results_found"] as? Int,
-            let startValue = json["results_start"] as? Int,
-            let currentValue = json["results_shown"] as? Int else { return }
+        guard let totalFound = json[ZomatoResources.JSONKeys.resultsFound] as? Int,
+            let startValue = json[ZomatoResources.JSONKeys.resultsStart] as? Int,
+            let currentValue = json[ZomatoResources.JSONKeys.resultsShown] as? Int else { return }
         
         found = totalFound
         start = startValue
@@ -97,7 +95,7 @@ class ZomatoRestarauntManager: NSObject {
     }
     
     private func extractRestaraunts(from json: [String: Any]) {
-        guard let restaraunts = json["nearby_restaurants"] as? [[String: Any]] else { return }
+        guard let restaraunts = json[ZomatoResources.JSONKeys.nearbyRestaurants] as? [[String: Any]] else { return }
         var workingList = [ZomatoRestaraunt]()
         restaraunts.forEach({
             let newRestaraunt = ZomatoRestaraunt($0)
@@ -114,7 +112,7 @@ extension ZomatoRestarauntManager: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentRestaraunt = restarauntList[indexPath.row]
-        let summaryCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! RestarauntSummaryCell
+        let summaryCell = tableView.dequeueReusableCell(withIdentifier: ZomatoResources.Keys.summaryCellID, for: indexPath) as! RestarauntSummaryCell
         summaryCell.owningRestaraunt = currentRestaraunt
         return summaryCell
     }

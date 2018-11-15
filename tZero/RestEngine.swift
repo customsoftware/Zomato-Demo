@@ -31,10 +31,6 @@ struct SearchParameters {
 }
 
 class ZomatoRestEngine: NSObject {
-    private let zomatoAPIKey = "69d6cd060e2415ea1ddb832cca701301"
-    private let geoCodeQuery = "https://developers.zomato.com/api/v2.1/geocode?lat=#LATITUDE#&lon=#LONGITUDE#"
-    private let searchForRestarauntsInZomatoLocation = "https://developers.zomato.com/api/v2.1/search?entity_type=zone&start=#START#&count=#COUNT#&lat=#LATITUDE#&lon=#LONGITUDE#&radius=#RADIUS#&sort=real_distance&order=asc"
-    private let searchQueueString = "backgroundSearchQueue"
     private var dataTask: URLSessionDataTask?
     private let dataSession = URLSession(configuration: .default)
     
@@ -60,19 +56,19 @@ extension ZomatoRestEngine {
     }
     
     func buildGeoCodeQuery(using parameters: SearchParameters) -> String {
-        var retValue = geoCodeQuery
-        retValue = retValue.replacingOccurrences(of: "#LATITUDE#", with: "\(parameters.latitude)")
-        retValue = retValue.replacingOccurrences(of: "#LONGITUDE#", with: "\(parameters.longitude)")
+        var retValue = ZomatoResources.ServerKeys.geoCodeQuery
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLatitude, with: "\(parameters.latitude)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLongitude, with: "\(parameters.longitude)")
         return retValue
     }
     
     func buildQueryString(using parameters: SearchParameters) -> String {
-        var retValue = searchForRestarauntsInZomatoLocation
-        retValue = retValue.replacingOccurrences(of: "#START#", with: "\(parameters.start)")
-        retValue = retValue.replacingOccurrences(of: "#COUNT#", with: "\(parameters.count)")
-        retValue = retValue.replacingOccurrences(of: "#LATITUDE#", with: "\(parameters.latitude)")
-        retValue = retValue.replacingOccurrences(of: "#LONGITUDE#", with: "\(parameters.longitude)")
-        retValue = retValue.replacingOccurrences(of: "#RADIUS#", with: "\(parameters.radius)")
+        var retValue = ZomatoResources.ServerKeys.searchForRestarauntsInZomatoLocation
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyStart, with: "\(parameters.start)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyCount, with: "\(parameters.count)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLatitude, with: "\(parameters.latitude)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLongitude, with: "\(parameters.longitude)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyRadius, with: "\(parameters.radius)")
         return retValue
     }
     
@@ -86,7 +82,7 @@ extension ZomatoRestEngine {
     func getRequestHeaders() -> [String: String] {
         var retValue = [String: String]()
         retValue["Accept"] = "application/json"
-        retValue["user-key"] = "\(zomatoAPIKey)"
+        retValue["user-key"] = "\(ZomatoResources.ServerKeys.zomatoAPIKey)"
         
         return retValue
     }

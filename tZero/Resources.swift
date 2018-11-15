@@ -37,9 +37,62 @@ struct ZomatoResources {
         static let mapCellID = "mapCellID"
         static let ratingCellID = "ratingCellID"
         static let costCellID = "costCellID"
+        static let summaryCellID = "summaryCellID"
+    }
+    
+    struct JSONKeys {
+        static let resultsFound = "results_found"
+        static let resultsStart = "results_start"
+        static let resultsShown = "results_shown"
+        static let nearbyRestaurants = "nearby_restaurants"
+        
+        struct Restaurant {
+            static let restaurant = "restaurant"
+            static let id = "id"
+            static let name = "name"
+            static let url = "url"
+            static let location = "location"
+            static let avgCostForTwo = "average_cost_for_two"
+            static let priceRange = "price_range"
+            static let rating = "user_rating"
+            static let featureImage = "featured_image"
+            static let photoURL = "photos_url"
+            static let cuisines = "cuisines"
+        }
+        
+        struct Location {
+            static let address = "address"
+            static let locality = "locality"
+            static let city = "city"
+            static let latitude = "latitude"
+            static let longitude = "longitude"
+            static let zipcode = "zipcode"
+            static let countryID = "country_id"
+        }
+        
+        struct Rating {
+            static let aggregate = "aggregate_rating"
+            static let text = "rating_text"
+            static let color = "rating_color"
+            static let votes = "votes"
+            
+        }
+    }
+    
+    struct ServerKeys {
+        static let zomatoAPIKey = "69d6cd060e2415ea1ddb832cca701301"
+        static let geoCodeQuery = "\(ZomatoResources.ServerKeys.serverBaseURL)\(ZomatoResources.ServerKeys.apiVersion)/geocode?lat=\(ZomatoResources.ServerKeys.lookupKeyLatitude)&lon=\(ZomatoResources.ServerKeys.lookupKeyLongitude)"
+        static let searchForRestarauntsInZomatoLocation = "\(ZomatoResources.ServerKeys.serverBaseURL)\(ZomatoResources.ServerKeys.apiVersion)/search?entity_type=zone&start=\(ZomatoResources.ServerKeys.lookupKeyStart)&count=\(ZomatoResources.ServerKeys.lookupKeyCount)&lat=\(ZomatoResources.ServerKeys.lookupKeyLatitude)&lon=\(ZomatoResources.ServerKeys.lookupKeyLongitude)&radius=\(ZomatoResources.ServerKeys.lookupKeyRadius)&sort=real_distance&order=asc"
+        static let searchQueueString = "backgroundSearchQueue"
+        static let serverBaseURL = "https://developers.zomato.com/api/"
+        static let apiVersion = "v2.1"
+        static let lookupKeyLatitude = "#LATITUDE#"
+        static let lookupKeyLongitude = "#LONGITUDE#"
+        static let lookupKeyRadius = "#RADIUS#"
+        static let lookupKeyStart = "#START#"
+        static let lookupKeyCount = "#COUNT#"
     }
 }
-
 
 extension UIViewController {
     func setBackButtonText(to text: String) {

@@ -1,9 +1,9 @@
 //
-//  ZomatoRestaraunt.swift
-//  tZero
+// ZomatoRestaraunt.swift
+// tZero
 //
-//  Created by Kenneth Cluff on 11/13/18.
-//  Copyright © 2018 Kenneth Cluff. All rights reserved.
+// Created by Kenneth Cluff on 11/13/18.
+// Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
 
 import UIKit
@@ -35,89 +35,89 @@ enum RestaurantDisplayItems: Int, CaseIterable {
 }
 
 struct ZomatoRestaraunt {
-    var id: Double? // (integer, optional): ID of the restaurant ,
-    var name: String? // (string, optional): Name of the restaurant ,
-    var url: String? // (string, optional): URL of the restaurant page ,
-    var location: ResLocation? //(ResLocation, optional): Restaurant location details ,
-    var average_cost_for_two: Int? // (integer, optional): Average price of a meal for two people ,
-    var price_range: Int? // (integer, optional): Price bracket of the restaurant (1 being pocket friendly and 4 being the costliest) ,
-    var currency: String? // (string, optional): Local currency symbol; to be used with price ,
-    var thumb: String? // (string, optional): URL of the low resolution header image of restaurant ,
-    var featured_image: String? // (string, optional): URL of the high resolution header image of restaurant ,
-    var photos_url: String? // (string, optional): URL of the restaurant's photos page ,
-    var menu_url: String? // (string, optional): URL of the restaurant's menu page ,
-    var events_url: String? // (string, optional): URL of the restaurant's events page ,
-    var user_rating: UserRating? // (UserRating, optional): Restaurant rating details ,
-    var has_online_delivery: Bool? // (boolean, optional): Whether the restaurant has online delivery enabled or not ,
-    var is_delivering_now: Bool? // (boolean, optional): Valid only if has_online_delivery = 1; whether the restaurant is accepting online orders right now ,
-    var has_table_booking: Bool? // (boolean, optional): Whether the restaurant has table reservation enabled or not ,
-    var deeplink: String? // (string, optional): Short URL of the restaurant page; for use in apps or social
-    var cuisines: String? // (string, optional): List of cuisines served at the restaurant in csv format ,
+    var id: Double? // ID of the restaurant
+    var name: String? // Name of the restaurant
+    var url: String? // URL of the restaurant page
+    var location: ResLocation? // Restaurant location details
+    var average_cost_for_two: Int? // Average price of a meal for two people
+    var price_range: Int? // Price bracket of the restaurant (1 being pocket friendly and 4 being the costliest)
+    var currency: String? // Local currency symbol; to be used with price
+    var thumb: String? // URL of the low resolution header image of restaurant
+    var featured_image: String? // URL of the high resolution header image of restaurant
+    var photos_url: String? // URL of the restaurant's photos page
+    var menu_url: String? // URL of the restaurant's menu page
+    var events_url: String? // URL of the restaurant's events page
+    var user_rating: UserRating? // Restaurant rating details
+    var has_online_delivery: Bool? // Whether the restaurant has online delivery enabled or not
+    var is_delivering_now: Bool? // Valid only if has_online_delivery = 1; whether the restaurant is accepting online orders right now
+    var has_table_booking: Bool? // Whether the restaurant has table reservation enabled or not
+    var deeplink: String? // Short URL of the restaurant page; for use in apps or social
+    var cuisines: String? // List of cuisines served at the restaurant in csv format
     
     init(_ json: [String: Any]) {
         // TODO: For a production system, all of the properties specified in the API will need to be handled.
         // For this demo, I'm just doing a subset of the properties: id, name, url, location, average price, price range, user_rating, thumb, featured image, cuisines
-        if let parameterJSON = json["restaurant"] as? [String: Any] {
-            if let id = parameterJSON["id"] as? String {
+        if let parameterJSON = json[ZomatoResources.JSONKeys.Restaurant.restaurant] as? [String: Any] {
+            if let id = parameterJSON[ZomatoResources.JSONKeys.Restaurant.id] as? String {
                 self.id = Double(id)
             }
-            self.name = parameterJSON["name"] as? String
-            self.url = parameterJSON["url"] as? String
+            self.name = parameterJSON[ZomatoResources.JSONKeys.Restaurant.name] as? String
+            self.url = parameterJSON[ZomatoResources.JSONKeys.Restaurant.url] as? String
             
-            if let locationData = parameterJSON["location"] as? [String: Any] {
+            if let locationData = parameterJSON[ZomatoResources.JSONKeys.Restaurant.location] as? [String: Any] {
                 self.location = ResLocation(locationData)
             }
             
-            self.average_cost_for_two = parameterJSON["average_cost_for_two"] as? Int
-            self.price_range = parameterJSON["price_range"] as? Int
+            self.average_cost_for_two = parameterJSON[ZomatoResources.JSONKeys.Restaurant.avgCostForTwo] as? Int
+            self.price_range = parameterJSON[ZomatoResources.JSONKeys.Restaurant.priceRange] as? Int
             
-            if let userRatingData = parameterJSON["user_rating"] as? [String: Any] {
+            if let userRatingData = parameterJSON[ZomatoResources.JSONKeys.Restaurant.rating] as? [String: Any] {
                 self.user_rating = UserRating(userRatingData)
             }
-            self.featured_image = parameterJSON["featured_image"] as? String
-            self.photos_url = parameterJSON["photos_url"] as? String
-            self.cuisines = parameterJSON["cuisines"] as? String
+            self.featured_image = parameterJSON[ZomatoResources.JSONKeys.Restaurant.featureImage] as? String
+            self.photos_url = parameterJSON[ZomatoResources.JSONKeys.Restaurant.photoURL] as? String
+            self.cuisines = parameterJSON[ZomatoResources.JSONKeys.Restaurant.cuisines] as? String
         }
     }
 }
 
 struct ResLocation {
-    var address: String? // (string, optional): Complete address of the restaurant ,
-    var locality: String? // (string, optional): Name of the locality ,
-    var city: String? // (string, optional): Name of the city ,
-    var latitude: Double? // (number, optional): Coordinates of the restaurant ,
-    var longitude: Double? // (number, optional): Coordinates of the restaurant ,
-    var zipcode: String? // (string, optional): Zipcode ,
-    var country_id: Int? // (integer, optional): ID of the country
+    var address: String? // Complete address of the restaurant
+    var locality: String? // Name of the locality
+    var city: String? // Name of the city
+    var latitude: Double? // Coordinates of the restaurant
+    var longitude: Double? // Coordinates of the restaurant
+    var zipcode: String? // Zipcode
+    var country_id: Int? // ID of the country
     
     init(_ parameterJSON: [String: Any]) {
-        self.address = parameterJSON["address"] as? String
-        self.locality = parameterJSON["locality"] as? String
-        self.city = parameterJSON["city"] as? String
-        if let latitude = parameterJSON["latitude"] as? String {
+        self.address = parameterJSON[ZomatoResources.JSONKeys.Location.address] as? String
+        self.locality = parameterJSON[ZomatoResources.JSONKeys.Location.locality] as? String
+        self.city = parameterJSON[ZomatoResources.JSONKeys.Location.city] as? String
+        if let latitude = parameterJSON[ZomatoResources.JSONKeys.Location.latitude] as? String {
             self.latitude = Double(latitude)
         }
-        if let longitude = parameterJSON["longitude"] as? String {
+        if let longitude = parameterJSON[ZomatoResources.JSONKeys.Location.longitude] as? String {
             self.longitude = Double(longitude)
         }
-        self.zipcode = parameterJSON["zipcode"] as? String
-        self.country_id = parameterJSON["country_id"] as? Int
+        self.zipcode = parameterJSON[ZomatoResources.JSONKeys.Location.zipcode] as? String
+        self.country_id = parameterJSON[ZomatoResources.JSONKeys.Location.countryID] as? Int
     }
 }
 
 struct UserRating {
-    var aggregate_rating: Double? // (number, optional): Restaurant rating on a scale of 0.0 to 5.0 in increments of 0.1 ,
-    var rating_text: String? // (string, optional): Short description of the rating ,
-    var rating_color: String? // (string, optional): Color hex code used with the rating on Zomato ,
-    var votes: Int? // (integer, optional): Number of ratings received
+    var aggregate_rating: Double? // Restaurant rating on a scale of 0.0 to 5.0 in increments of 0.1
+    var rating_text: String? // Short description of the rating
+    var rating_color: String? // Color hex code used with the rating on Zomato
+    var votes: Int? // Number of ratings received
     
     init(_ parameterJSON: [String: Any]) {
-        if let aggregate_rating = parameterJSON["aggregate_rating"] as? String {
+        if let aggregate_rating = parameterJSON[ZomatoResources.JSONKeys.Rating.aggregate] as? String {
             self.aggregate_rating = Double(aggregate_rating)
         }
-        self.rating_text = parameterJSON["rating_text"] as? String
-        self.rating_color = parameterJSON["rating_color"] as? String
-        if let votes = parameterJSON["votes"] as? String {
+        self.rating_text = parameterJSON[ZomatoResources.JSONKeys.Rating.text] as? String
+        self.rating_color = parameterJSON[ZomatoResources.JSONKeys.Rating.color] as? String
+        if let votes = parameterJSON[ZomatoResources.JSONKeys.Rating.votes] as? String {
             self.votes = Int(votes)
         }
     }
