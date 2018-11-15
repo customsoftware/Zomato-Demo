@@ -38,6 +38,8 @@ struct ZomatoResources {
         static let ratingCellID = "ratingCellID"
         static let costCellID = "costCellID"
         static let summaryCellID = "summaryCellID"
+        static let pushResultsSegueID = "pushResults"
+        
     }
     
     struct JSONKeys {

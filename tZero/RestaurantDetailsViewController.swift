@@ -57,6 +57,7 @@ class RestaurantDetailsViewController: UITableViewController {
     }
 }
 
+// MARK: - Cell definitions
 class TextCell: UITableViewCell {
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var content: UILabel!
@@ -104,7 +105,6 @@ class RatingCell: UITableViewCell {
         }
     }
 }
-
 
 class MapCell: UITableViewCell {
     @IBOutlet weak var caption: UILabel!

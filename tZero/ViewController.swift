@@ -12,7 +12,6 @@ import MapKit
 class ViewController: UIViewController {
     let searchEngine = ZomatoRestarauntManager.shared
     let locationManager = CLLocationManager()
-    let segueID = "pushResults"
     var firstTouchPoint: UITouch?
     var lastPin: MKPointAnnotation?
     var mapLocationLastTouched: CLLocation? {
@@ -61,14 +60,16 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else { return }
         switch segueID {
-        case self.segueID:
+        case ZomatoResources.Keys.pushResultsSegueID:
             setBackButtonText(to: ZomatoResources.Strings.navigateHomeButton)
             
         default:()
         }
     }
-    
-    private func setupMap(for location: CLLocation) {
+}
+
+fileprivate extension ViewController {
+    func setupMap(for location: CLLocation) {
         searchMap.showsUserLocation = true
         searchMap.showsBuildings = true
         let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: localMapRegionDistance, longitudinalMeters: localMapRegionDistance)
@@ -76,7 +77,7 @@ class ViewController: UIViewController {
         searchMap.setRegion(region, animated: true)
     }
     
-    private func makePin(at location: CLLocation) {
+    func makePin(at location: CLLocation) {
         let locationAnnotation = MKPointAnnotation()
         locationAnnotation.title = ZomatoResources.Strings.locationAnnotationTitle
         locationAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -85,7 +86,7 @@ class ViewController: UIViewController {
         searchMap.setCenter(locationAnnotation.coordinate, animated: true)
     }
     
-    private func showHowToAlert() {
+    func showHowToAlert() {
         let alert = UIAlertController(title: ZomatoResources.Strings.howToTitle, message: ZomatoResources.Strings.howToInstructions, preferredStyle: .alert)
         let okAction = UIAlertAction(title: ZomatoResources.Strings.okCaption, style: .default, handler: nil)
         alert.addAction(okAction)
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
 extension ViewController: QueryCompleted {
     func updateUI() {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: self.segueID, sender: nil)
+            self.performSegue(withIdentifier: ZomatoResources.Keys.pushResultsSegueID, sender: nil)
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }

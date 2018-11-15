@@ -38,7 +38,6 @@ class ZomatoRestEngine: NSObject {
         dataTask?.cancel()
         
         let queryString = buildGeoCodeQuery(using: searchParameters)
-//        let queryString = buildQueryString(using: searchParameters)
         guard let url = URL(string: queryString) else { return }
         let request = buildURLRequest(url, using: searchParameters)
         
@@ -47,10 +46,9 @@ class ZomatoRestEngine: NSObject {
         }
         dataTask?.resume()
     }
-    
 }
 
-extension ZomatoRestEngine {
+fileprivate extension ZomatoRestEngine {
     func getJSONStringFrom(_ data: Data) -> String? {
         return String(data: data, encoding: .utf8)
     }
