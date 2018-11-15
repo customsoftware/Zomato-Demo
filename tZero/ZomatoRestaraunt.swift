@@ -37,7 +37,7 @@ enum RestaurantDisplayItems: Int, CaseIterable {
     }
 }
 
-struct ZomatoRestaraunt {
+struct ZomatoRestaraunt: Codable {
     var id: Double? // ID of the restaurant
     var name: String? // Name of the restaurant
     var url: String? // URL of the restaurant page
@@ -50,12 +50,25 @@ struct ZomatoRestaraunt {
     var photosURL: String? // URL of the restaurant's photos page
     var menuURL: String? // URL of the restaurant's menu page
     var eventsURL: String? // URL of the restaurant's events page
-    var user_rating: UserRating? // Restaurant rating details
-    var hasOnlineDeliver: Bool? // Whether the restaurant has online delivery enabled or not
+    var userRating: UserRating? // Restaurant rating details
+    var hasOnlineDelivery: Bool? // Whether the restaurant has online delivery enabled or not
     var isDeliveringNow: Bool? // Valid only if has_online_delivery = 1; whether the restaurant is accepting online orders right now
     var hasTableBooking: Bool? // Whether the restaurant has table reservation enabled or not
     var deeplink: String? // Short URL of the restaurant page; for use in apps or social
     var cuisines: String? // List of cuisines served at the restaurant in csv format
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, url, location, currency, thumb, deeplink, cuisines
+        case averageCost = "average_cost_for_two"
+        case priceRange = "price_range"
+        case featuredImage = "featured_image"
+        case photosURL = "photos_url"
+        case menuURL = "menu_url"
+        case userRating = "user_rating"
+        case hasOnlineDelivery = "has_online_delivery"
+        case isDeliveringNow = "is_delivering_now"
+        case hasTableBooking = "has_table_booking"
+    }
     
     init(_ json: [String: Any]) {
         // TODO: For a production system, all of the properties specified in the API will need to be handled.
@@ -66,16 +79,16 @@ struct ZomatoRestaraunt {
             }
             self.name = parameterJSON[ZomatoResources.JSONKeys.Restaurant.name] as? String
             self.url = parameterJSON[ZomatoResources.JSONKeys.Restaurant.url] as? String
-            
+
             if let locationData = parameterJSON[ZomatoResources.JSONKeys.Restaurant.location] as? [String: Any] {
                 self.location = ResLocation(locationData)
             }
-            
+
             self.averageCost = parameterJSON[ZomatoResources.JSONKeys.Restaurant.avgCostForTwo] as? Int
             self.priceRange = parameterJSON[ZomatoResources.JSONKeys.Restaurant.priceRange] as? Int
-            
+
             if let userRatingData = parameterJSON[ZomatoResources.JSONKeys.Restaurant.rating] as? [String: Any] {
-                self.user_rating = UserRating(userRatingData)
+                self.userRating = UserRating(userRatingData)
             }
             self.featuredImage = parameterJSON[ZomatoResources.JSONKeys.Restaurant.featureImage] as? String
             self.photosURL = parameterJSON[ZomatoResources.JSONKeys.Restaurant.photoURL] as? String
@@ -84,7 +97,7 @@ struct ZomatoRestaraunt {
     }
 }
 
-struct ResLocation {
+struct ResLocation: Codable {
     var address: String? // Complete address of the restaurant
     var locality: String? // Name of the locality
     var city: String? // Name of the city
@@ -92,6 +105,11 @@ struct ResLocation {
     var longitude: Double? // Coordinates of the restaurant
     var zipcode: String? // Zipcode
     var countryID: Int? // ID of the country
+    
+    enum CodingKeys: String, CodingKey {
+        case address, locality, city, latitude, longitude, zipcode
+        case countryID = "country_id"
+    }
     
     init(_ parameterJSON: [String: Any]) {
         self.address = parameterJSON[ZomatoResources.JSONKeys.Location.address] as? String
@@ -108,11 +126,18 @@ struct ResLocation {
     }
 }
 
-struct UserRating {
+struct UserRating: Codable {
     var aggregateRating: Double? // Restaurant rating on a scale of 0.0 to 5.0 in increments of 0.1
     var ratingText: String? // Short description of the rating
     var ratingColor: String? // Color hex code used with the rating on Zomato
     var votes: Int? // Number of ratings received
+    
+    enum CodingKeys: String, CodingKey {
+        case votes
+        case aggregateRating = "aggregate_rating"
+        case ratingText = "rating_text"
+        case ratingColor = "rating_color"
+    }
     
     init(_ parameterJSON: [String: Any]) {
         if let aggregateRating = parameterJSON[ZomatoResources.JSONKeys.Rating.aggregate] as? String {

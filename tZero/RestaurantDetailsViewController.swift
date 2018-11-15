@@ -92,13 +92,13 @@ class RatingCell: UITableViewCell {
     
     func configure(_ key: RestaurantDisplayItems, _ content: ZomatoRestaraunt?) {
         caption.text = key.stringValue
-        let ratingString = "\(content?.user_rating?.ratingText ?? ZomatoResources.Strings.emtpyString) - \(content?.user_rating?.votes ?? 0) \(ZomatoResources.Strings.captionVotes)"
+        let ratingString = "\(content?.userRating?.ratingText ?? ZomatoResources.Strings.emtpyString) - \(content?.userRating?.votes ?? 0) \(ZomatoResources.Strings.captionVotes)"
         
         ratingLabel.text = ratingString
         if let content = content,
-            let rating = content.user_rating?.aggregateRating {
+            let rating = content.userRating?.aggregateRating {
             ratingButton.setTitle("\(rating)", for: .normal)
-            ratingButton.layer.backgroundColor = content.user_rating?.color.cgColor
+            ratingButton.layer.backgroundColor = content.userRating?.color.cgColor
             ratingButton.layer.cornerRadius = ratingButton.frame.height/2
             ratingButton.layer.borderColor = UIColor.black.cgColor
             ratingButton.layer.borderWidth = 1.03
