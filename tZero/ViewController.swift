@@ -19,11 +19,10 @@ class ViewController: UIViewController {
         didSet {
             guard let mapLocationLastTouched = mapLocationLastTouched else { return }
             navigationItem.rightBarButtonItem?.isEnabled = true
-            if let _ = lastPin {
-                lastPin?.coordinate = mapLocationLastTouched.coordinate
-            } else {
-                makePin(at: mapLocationLastTouched)
+            if let lastPin = lastPin {
+                searchMap.removeAnnotation(lastPin)
             }
+            makePin(at: mapLocationLastTouched)
         }
     }
     
@@ -42,6 +41,7 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         locationManager.startUpdatingLocation()
         showHowToAlert()
+        navigationItem.title = ZomatoResources.Strings.homeTitle
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     
     private func makePin(at location: CLLocation) {
         let locationAnnotation = MKPointAnnotation()
-        locationAnnotation.title = "Looking Here"
+        locationAnnotation.title = ZomatoResources.Strings.locationAnnotationTitle
         locationAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         lastPin = locationAnnotation
         searchMap.addAnnotation(locationAnnotation)
@@ -76,8 +76,8 @@ class ViewController: UIViewController {
     }
     
     private func showHowToAlert() {
-        let alert = UIAlertController(title: "Instructions", message: "Tap on map to set location.\nThen tap search button to find restaurants.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alert = UIAlertController(title: ZomatoResources.Strings.howToTitle, message: ZomatoResources.Strings.howToInstructions, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: ZomatoResources.Strings.okCaption, style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }

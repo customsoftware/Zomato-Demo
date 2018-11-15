@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		902D743E219CB3CD00F24898 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902D743D219CB3CD00F24898 /* SearchResultsTableViewController.swift */; };
 		902D7444219CE23000F24898 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902D7443219CE23000F24898 /* RestaurantDetailsViewController.swift */; };
+		90CD1710219DA922008D4915 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD170F219DA922008D4915 /* Resources.swift */; };
 		90E70C66219BBB7D00363700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E70C65219BBB7D00363700 /* AppDelegate.swift */; };
 		90E70C68219BBB7D00363700 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E70C67219BBB7D00363700 /* ViewController.swift */; };
 		90E70C6B219BBB7D00363700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E70C69219BBB7D00363700 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		902D743D219CB3CD00F24898 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		902D7443219CE23000F24898 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
+		90CD170F219DA922008D4915 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		90E70C62219BBB7D00363700 /* tZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E70C65219BBB7D00363700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90E70C67219BBB7D00363700 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				90E70C6C219BBB7F00363700 /* Assets.xcassets */,
 				90E70C6E219BBB7F00363700 /* LaunchScreen.storyboard */,
 				90E70C71219BBB7F00363700 /* Info.plist */,
+				90CD170F219DA922008D4915 /* Resources.swift */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				902D743E219CB3CD00F24898 /* SearchResultsTableViewController.swift in Sources */,
 				90E70C86219BBBA600363700 /* RestEngine.swift in Sources */,
 				90E70C66219BBB7D00363700 /* AppDelegate.swift in Sources */,
+				90CD1710219DA922008D4915 /* Resources.swift in Sources */,
 				90E70C8E219C225D00363700 /* ZomatoRestarauntManager.swift in Sources */,
 				902D7444219CE23000F24898 /* RestaurantDetailsViewController.swift in Sources */,
 			);

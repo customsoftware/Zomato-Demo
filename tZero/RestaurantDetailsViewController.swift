@@ -10,16 +10,12 @@ import UIKit
 import MapKit
 
 class RestaurantDetailsViewController: UITableViewController {
-    let textCellID = "textCellID"
-    let mapCellID = "mapCellID"
-    let ratingCellID = "ratingCellID"
-    let costCellID = "costCellID"
     
     var displayedRestaurant: ZomatoRestaraunt?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = displayedRestaurant?.name ?? ""
+        navigationItem.title = displayedRestaurant?.name ?? ZomatoResources.Strings.emtpyString
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableView.automaticDimension
     }
@@ -37,22 +33,22 @@ class RestaurantDetailsViewController: UITableViewController {
         let rowKey = RestaurantDisplayItems.allCases[indexPath.row]
         switch rowKey {
         case .address:
-            let textCell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath) as? TextCell
+            let textCell = tableView.dequeueReusableCell(withIdentifier: ZomatoResources.Keys.textCellID, for: indexPath) as? TextCell
             textCell?.configure(rowKey, displayedRestaurant)
             retCell = textCell
             
         case .map:
-            let mapCell = tableView.dequeueReusableCell(withIdentifier: mapCellID, for: indexPath) as? MapCell
+            let mapCell = tableView.dequeueReusableCell(withIdentifier: ZomatoResources.Keys.mapCellID, for: indexPath) as? MapCell
             mapCell?.configure(rowKey, displayedRestaurant)
             retCell = mapCell
             
         case .cost:
-            let costCell = tableView.dequeueReusableCell(withIdentifier: costCellID, for: indexPath) as? CostCell
+            let costCell = tableView.dequeueReusableCell(withIdentifier: ZomatoResources.Keys.costCellID, for: indexPath) as? CostCell
             costCell?.configure(rowKey, displayedRestaurant)
             retCell = costCell
             
         case .rating:
-            let ratingCell = tableView.dequeueReusableCell(withIdentifier: ratingCellID, for: indexPath) as? RatingCell
+            let ratingCell = tableView.dequeueReusableCell(withIdentifier: ZomatoResources.Keys.ratingCellID, for: indexPath) as? RatingCell
             ratingCell?.configure(rowKey, displayedRestaurant)
             retCell = ratingCell
         }
@@ -67,7 +63,7 @@ class TextCell: UITableViewCell {
     
     func configure(_ key: RestaurantDisplayItems, _ content: ZomatoRestaraunt?) {
         caption.text = key.stringValue
-        self.content.text = content?.location?.address ?? ""
+        self.content.text = content?.location?.address ?? ZomatoResources.Strings.emtpyString
     }
 }
 
@@ -79,11 +75,11 @@ class CostCell: UITableViewCell {
     func configure(_ key: RestaurantDisplayItems, _ content: ZomatoRestaraunt?) {
         caption.text = key.stringValue
         if let cost4Two = content?.average_cost_for_two {
-            costForTwo.text = "Avg. Cost for Two: \(cost4Two)"
+            costForTwo.text = "\(ZomatoResources.Strings.captionCostForTwo) \(cost4Two)"
         } else {
-            costForTwo.text = ""
+            costForTwo.text = ZomatoResources.Strings.emtpyString
         }
-        priceCategory.text = "Price Group: \(content?.price_range ?? 0)"
+        priceCategory.text = "\(ZomatoResources.Strings.captionPriceGroup) \(content?.price_range ?? 0)"
     }
 }
 
@@ -95,7 +91,7 @@ class RatingCell: UITableViewCell {
     
     func configure(_ key: RestaurantDisplayItems, _ content: ZomatoRestaraunt?) {
         caption.text = key.stringValue
-        let ratingString = "\(content?.user_rating?.rating_text ?? "") - \(content?.user_rating?.votes ?? 0) votes"
+        let ratingString = "\(content?.user_rating?.rating_text ?? ZomatoResources.Strings.emtpyString) - \(content?.user_rating?.votes ?? 0) \(ZomatoResources.Strings.captionVotes)"
         
         ratingLabel.text = ratingString
         if let content = content,
@@ -132,7 +128,7 @@ class MapCell: UITableViewCell {
             let latitude = location.latitude,
             let longitude = location.longitude {
             let restaurantAnnotation = MKPointAnnotation()
-            restaurantAnnotation.title = restaurant.name ?? "Here"
+            restaurantAnnotation.title = restaurant.name ?? ZomatoResources.Strings.captionHere
             restaurantAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             mapView.showsUserLocation = true
             mapView.addAnnotation(restaurantAnnotation)

@@ -9,9 +9,6 @@
 import UIKit
 
 class SearchResultsTableViewController: UITableViewController {
-    let detailSegueID = "showRestaurantDetail"
-    let userInfoRestaurantKey = "restaurant"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = ZomatoRestarauntManager.shared
@@ -20,10 +17,10 @@ class SearchResultsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else { return }
         switch segueID {
-        case detailSegueID:
+        case ZomatoResources.Keys.detailSegueID:
             if let detailVC = segue.destination as? RestaurantDetailsViewController,
                 let userInfo = sender as? [String: Any],
-                let selectedRestaurant = userInfo[userInfoRestaurantKey] as? ZomatoRestaraunt {
+                let selectedRestaurant = userInfo[ZomatoResources.Keys.userInfoRestaurantKey] as? ZomatoRestaraunt {
                 detailVC.displayedRestaurant = selectedRestaurant
             }
             
@@ -34,8 +31,8 @@ class SearchResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRestaurant = ZomatoRestarauntManager.shared.restarauntList[indexPath.row]
         var userInfo = [String: Any]()
-        userInfo[userInfoRestaurantKey] = selectedRestaurant
-        performSegue(withIdentifier: detailSegueID, sender: userInfo)
+        userInfo[ZomatoResources.Keys.userInfoRestaurantKey] = selectedRestaurant
+        performSegue(withIdentifier: ZomatoResources.Keys.detailSegueID, sender: userInfo)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -48,8 +45,8 @@ class RestarauntSummaryCell: UITableViewCell {
     var owningRestaraunt: ZomatoRestaraunt? {
         didSet {
             guard let owningRestaraunt = owningRestaraunt else { return }
-            name.text = owningRestaraunt.name ?? "Not set"
-            address.text = owningRestaraunt.cuisines ?? "None stated"
+            name.text = owningRestaraunt.name ?? ZomatoResources.Strings.defaultNotSet
+            address.text = owningRestaraunt.cuisines ?? ZomatoResources.Strings.defaultNoneStated
             rating.text = "\(owningRestaraunt.user_rating?.aggregate_rating ?? 0)"
             rating.layer.borderColor = UIColor.darkGray.cgColor
             rating.layer.borderWidth = 1.03
