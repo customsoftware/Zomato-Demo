@@ -1,0 +1,502 @@
+{
+    "location": {
+        "entity_type": "subzone",
+        "entity_id": 125800,
+        "title": "Capitol Hill",
+        "latitude": "40.7708424955",
+        "longitude": "-111.8935420879",
+        "city_id": 1213,
+        "city_name": "Salt Lake City",
+        "country_id": 216,
+        "country_name": "United States"
+    },
+    "popularity": {
+        "popularity": "4.78",
+        "nightlife_index": "4.72",
+        "nearby_res": [
+            "17234613",
+            "17232858",
+            "17234313",
+            "17232516",
+            "17232741",
+            "17232660",
+            "17231711",
+            "17234294",
+            "17231786"
+        ],
+        "top_cuisines": [
+            "American",
+            "Sandwich",
+            "Coffee and Tea",
+            "Fast Food",
+            "Italian"
+        ],
+        "popularity_res": "100",
+        "nightlife_res": "10",
+        "subzone": "Capitol Hill",
+        "subzone_id": 125800,
+        "city": "Salt Lake City"
+    },
+    "link": "https://www.zomato.com/salt-lake-city/capitol-hill-restaurants",
+    "nearby_restaurants": [
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17234613
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17234613",
+                "name": "The Copper Onion",
+                "url": "https://www.zomato.com/salt-lake-city/the-copper-onion-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "111 E Broadway Ste 170, Salt Lake City 84111",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7630440000",
+                    "longitude": "-111.8877730000",
+                    "zipcode": "84111",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Breakfast, European",
+                "average_cost_for_two": 40,
+                "price_range": 3,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "https://b.zmtcdn.com/data/res_imagery/17234613_RESTAURANT_13c701c783b22aa887d4f2f39a8bc8f2_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+                "user_rating": {
+                    "aggregate_rating": "4.5",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "646"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/the-copper-onion-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/the-copper-onion-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "https://b.zmtcdn.com/data/res_imagery/17234613_RESTAURANT_13c701c783b22aa887d4f2f39a8bc8f2_c.jpg",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17234613",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/the-copper-onion-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17232858
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17232858",
+                "name": "Takashi",
+                "url": "https://www.zomato.com/salt-lake-city/takashi-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "18 W Market St, Salt Lake City 84101",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7619180000",
+                    "longitude": "-111.8917570000",
+                    "zipcode": "84101",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Japanese, Sushi",
+                "average_cost_for_two": 40,
+                "price_range": 3,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "https://b.zmtcdn.com/data/res_imagery/17232858_RESTAURANT_a8b71c8eb3bb2bbc97ae477415312798_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+                "user_rating": {
+                    "aggregate_rating": "4.5",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "552"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/takashi-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/takashi-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "https://b.zmtcdn.com/data/res_imagery/17232858_RESTAURANT_a8b71c8eb3bb2bbc97ae477415312798_c.jpg",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17232858",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/takashi-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17234313
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17234313",
+                "name": "Bruges Waffles and Frites",
+                "url": "https://www.zomato.com/salt-lake-city/bruges-waffles-and-frites-downtown?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "336 West 300,Broadway, Salt Lake City 84101",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7629770000",
+                    "longitude": "-111.9007940000",
+                    "zipcode": "84101",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Belgian, Desserts, European",
+                "average_cost_for_two": 20,
+                "price_range": 2,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "https://b.zmtcdn.com/data/res_imagery/17234313_RESTAURANT_978ebf52bdffe220e73859d28916e498_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+                "user_rating": {
+                    "aggregate_rating": "4.9",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "590"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/bruges-waffles-and-frites-downtown/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/bruges-waffles-and-frites-downtown/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "https://b.zmtcdn.com/data/res_imagery/17234313_RESTAURANT_978ebf52bdffe220e73859d28916e498_c.jpg",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17234313",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/bruges-waffles-and-frites-downtown/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17232516
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17232516",
+                "name": "Red Rock Brewing Company",
+                "url": "https://www.zomato.com/salt-lake-city/red-rock-brewing-company-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "254 South 200 West 84101",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7636700000",
+                    "longitude": "-111.8969000000",
+                    "zipcode": "84101",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Burger, Bar Food, Steak",
+                "average_cost_for_two": 25,
+                "price_range": 2,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "https://b.zmtcdn.com/data/res_imagery/17232516_RESTAURANT_218976aac88f6a15e66d5da7b02f4569_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+                "user_rating": {
+                    "aggregate_rating": "4.5",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "649"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/red-rock-brewing-company-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/red-rock-brewing-company-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "https://b.zmtcdn.com/data/res_imagery/17232516_RESTAURANT_218976aac88f6a15e66d5da7b02f4569_c.jpg",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17232516",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/red-rock-brewing-company-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17232741
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17232741",
+                "name": "Squatters Pub Brewery",
+                "url": "https://www.zomato.com/salt-lake-city/squatters-pub-brewery-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "147 West Broadway 84101",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7624000000",
+                    "longitude": "-111.8956800000",
+                    "zipcode": "84101",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "American, Burger, Bar Food",
+                "average_cost_for_two": 0,
+                "price_range": 1,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "",
+                "user_rating": {
+                    "aggregate_rating": "4.3",
+                    "rating_text": "Very Good",
+                    "rating_color": "5BA829",
+                    "votes": "545"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/squatters-pub-brewery-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/squatters-pub-brewery-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17232741",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/squatters-pub-brewery-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17232660
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17232660",
+                "name": "Settebello",
+                "url": "https://www.zomato.com/salt-lake-city/settebello-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "260 S 200 W, Salt Lake City 84101",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7634380000",
+                    "longitude": "-111.8972400000",
+                    "zipcode": "84101",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Italian, Pizza",
+                "average_cost_for_two": 25,
+                "price_range": 2,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "",
+                "user_rating": {
+                    "aggregate_rating": "4.4",
+                    "rating_text": "Very Good",
+                    "rating_color": "5BA829",
+                    "votes": "502"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/settebello-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/settebello-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17232660",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/settebello-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17231711
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17231711",
+                "name": "Gourmandise The Bakery",
+                "url": "https://www.zomato.com/salt-lake-city/gourmandise-the-bakery-east-central?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "250 South 300 East 84111",
+                    "locality": "East Central",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7637300000",
+                    "longitude": "-111.8833200000",
+                    "zipcode": "84111",
+                    "country_id": 216,
+                    "locality_verbose": "East Central, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Coffee and Tea, Sandwich",
+                "average_cost_for_two": 10,
+                "price_range": 1,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "",
+                "user_rating": {
+                    "aggregate_rating": "4.8",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "406"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/gourmandise-the-bakery-east-central/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/gourmandise-the-bakery-east-central/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17231711",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/gourmandise-the-bakery-east-central/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17234294
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17234294",
+                "name": "Eva",
+                "url": "https://www.zomato.com/salt-lake-city/eva-downtown?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "317 S Main Street 84111",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7623540000",
+                    "longitude": "-111.8909140000",
+                    "zipcode": "84111",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Mediterranean, Tapas",
+                "average_cost_for_two": 35,
+                "price_range": 3,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "",
+                "user_rating": {
+                    "aggregate_rating": "4.6",
+                    "rating_text": "Excellent",
+                    "rating_color": "3F7E00",
+                    "votes": "383"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/eva-downtown/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/eva-downtown/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17234294",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/eva-downtown/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        },
+        {
+            "restaurant": {
+                "R": {
+                    "res_id": 17231786
+                },
+                "apikey": "69d6cd060e2415ea1ddb832cca701301",
+                "id": "17231786",
+                "name": "Himalayan Kitchen",
+                "url": "https://www.zomato.com/salt-lake-city/himalayan-kitchen-salt-lake-city?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+                "location": {
+                    "address": "360 South State Street 84111",
+                    "locality": "Downtown",
+                    "city": "Salt Lake City",
+                    "city_id": 1213,
+                    "latitude": "40.7610100000",
+                    "longitude": "-111.8886100000",
+                    "zipcode": "84111",
+                    "country_id": 216,
+                    "locality_verbose": "Downtown, Salt Lake City"
+                },
+                "switch_to_order_menu": 0,
+                "cuisines": "Asian, Indian",
+                "average_cost_for_two": 25,
+                "price_range": 2,
+                "currency": "$",
+                "offers": [],
+                "opentable_support": 0,
+                "is_zomato_book_res": 0,
+                "mezzo_provider": "OTHER",
+                "is_book_form_web_view": 0,
+                "book_form_web_view_url": "",
+                "book_again_url": "",
+                "thumb": "https://b.zmtcdn.com/data/res_imagery/17231786_RESTAURANT_097972846898b50930a6a76e53d402ab_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+                "user_rating": {
+                    "aggregate_rating": "4.3",
+                    "rating_text": "Very Good",
+                    "rating_color": "5BA829",
+                    "votes": "274"
+                },
+                "photos_url": "https://www.zomato.com/salt-lake-city/himalayan-kitchen-salt-lake-city/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+                "menu_url": "https://www.zomato.com/salt-lake-city/himalayan-kitchen-salt-lake-city/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+                "featured_image": "https://b.zmtcdn.com/data/res_imagery/17231786_RESTAURANT_097972846898b50930a6a76e53d402ab_c.jpg",
+                "has_online_delivery": 0,
+                "is_delivering_now": 0,
+                "include_bogo_offers": true,
+                "deeplink": "zomato://restaurant/17231786",
+                "is_table_reservation_supported": 0,
+                "has_table_booking": 0,
+                "events_url": "https://www.zomato.com/salt-lake-city/himalayan-kitchen-salt-lake-city/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+            }
+        }
+    ]
+}
