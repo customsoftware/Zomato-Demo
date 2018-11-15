@@ -5,6 +5,9 @@
 //  Created by Kenneth Cluff on 11/13/18.
 //  Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
+/// I actually built these unit tests before I started working on the UI. It expresses my philosophy towards REST design in that I'll work out and test the server communication first if at all possible. I don't use UI tests so much, but unit tests for non-visual calls is crucial. That's why I built these first. It's not as extensive as it could be, (there are no performance related tests.) Although in a production environment they would be helpful to assuring performant queries.
+/// My adherence to localization is not as strict here since I assume just developers who will look at this and not customers. I assume they read English well enough to work through the code.
+/// Note the use of expectations to manage testing asynchronous calls.
 
 import XCTest
 @testable import tZero
@@ -19,7 +22,7 @@ class tZeroTests: XCTestCase {
     let testParameters = SearchParameters(start: 21, count: 40, latitude: 40.769, longitude: -111.889, radius: 1000, queryType: RestCallType.get, queryTimeOut: 30)
     
     func testQueryBuilding() {
-        let testString = engine.buildQueryString(using: testParameters)
+        let testString = engine.testBuildQueryString(using: testParameters)
         XCTAssert(testString == referenceQueryString, "The two query strings should be identical. They are not.\n Test String:\(referenceQueryString) \nGenerated String: \(testString)")
     }
 
@@ -51,8 +54,7 @@ class tZeroTests: XCTestCase {
                 XCTAssert(false, "Could not read test file")
                 return
             }
-            restarauntEngine.reset()
-            restarauntEngine.buildRestarauntList(from: localRestarauntResults)
+            restarauntEngine.testBuildingRestaurantsFromTestFile_DONOTUSEOTHERWISE(localRestarauntResults)
             guard let first = restarauntEngine.restarauntList.first,
                 let firstRating = first.user_rating else {
                     XCTAssert(false, "Couldn't get restaurant from list")
@@ -79,8 +81,7 @@ class tZeroTests: XCTestCase {
                 XCTAssert(false, "Could not read test file")
                 return
             }
-            restarauntEngine.reset()
-            restarauntEngine.buildRestarauntList(from: localRestarauntResults)
+            restarauntEngine.testBuildingRestaurantsFromTestFile_DONOTUSEOTHERWISE(localRestarauntResults)
             guard let first = restarauntEngine.restarauntList.first,
                 let firstLocation = first.location else {
                 XCTAssert(false, "Couldn't get restaruant from list")
@@ -108,8 +109,7 @@ class tZeroTests: XCTestCase {
                 XCTAssert(false, "Could not read test file")
                 return
             }
-            restarauntEngine.reset()
-            restarauntEngine.buildRestarauntList(from: localRestarauntResults)
+            restarauntEngine.testBuildingRestaurantsFromTestFile_DONOTUSEOTHERWISE(localRestarauntResults)
             guard let first = restarauntEngine.restarauntList.first else {
                 XCTAssert(false, "Couldn't get restaruant from list")
                 return

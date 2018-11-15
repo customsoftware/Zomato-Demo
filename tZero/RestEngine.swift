@@ -5,6 +5,8 @@
 //  Created by Kenneth Cluff on 11/13/18.
 //  Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
+/// This is an example of how I use a callback handler passed into another object to handle asynchronous operations.
+/// Note that as much of the class as posible is hidden from the consuming objects.
 
 import Foundation
 
@@ -34,6 +36,22 @@ class ZomatoRestEngine: NSObject {
     private var dataTask: URLSessionDataTask?
     private let dataSession = URLSession(configuration: .default)
     
+    /**
+     search for restaurants using the SearchParameters struct
+     
+     - Author:
+     Ken Cluff
+     
+     - Returns:
+     This doesn't return a value as it's an asynchronous call
+     
+     - Parameters:
+        - searchParameters: This is a SearchParameters struct. It is not optional
+        - callBack: This is a completion handler. This is how results are returned to the app. It is not optional.
+     
+     This just performs the query to the server. The results are passed back to the calling object through the callBack parameter. The callBack is a typealias.
+     
+     */
     func searchForRestaraunts(_ searchParameters: SearchParameters, with callBack: @escaping CompletionHandler) {
         dataTask?.cancel()
         
@@ -46,6 +64,16 @@ class ZomatoRestEngine: NSObject {
         }
         dataTask?.resume()
     }
+    
+    func testBuildQueryString(using parameters: SearchParameters) -> String {
+        var retValue = ZomatoResources.ServerKeys.searchForRestarauntsInZomatoLocation
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyStart, with: "\(parameters.start)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyCount, with: "\(parameters.count)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLatitude, with: "\(parameters.latitude)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLongitude, with: "\(parameters.longitude)")
+        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyRadius, with: "\(parameters.radius)")
+        return retValue
+    }
 }
 
 fileprivate extension ZomatoRestEngine {
@@ -57,16 +85,6 @@ fileprivate extension ZomatoRestEngine {
         var retValue = ZomatoResources.ServerKeys.geoCodeQuery
         retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLatitude, with: "\(parameters.latitude)")
         retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLongitude, with: "\(parameters.longitude)")
-        return retValue
-    }
-    
-    func buildQueryString(using parameters: SearchParameters) -> String {
-        var retValue = ZomatoResources.ServerKeys.searchForRestarauntsInZomatoLocation
-        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyStart, with: "\(parameters.start)")
-        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyCount, with: "\(parameters.count)")
-        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLatitude, with: "\(parameters.latitude)")
-        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyLongitude, with: "\(parameters.longitude)")
-        retValue = retValue.replacingOccurrences(of: ZomatoResources.ServerKeys.lookupKeyRadius, with: "\(parameters.radius)")
         return retValue
     }
     

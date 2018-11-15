@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var searchMap: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -43,6 +44,17 @@ class ViewController: UIViewController {
         navigationItem.title = ZomatoResources.Strings.homeTitle
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueID = segue.identifier else { return }
+        switch segueID {
+        case ZomatoResources.Keys.pushResultsSegueID:
+            setBackButtonText(to: ZomatoResources.Strings.navigateHomeButton)
+            
+        default:()
+        }
+    }
+    
+    /// These two calls are used to debounce the taps on the map
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let firstTouch = touches.first else { return }
         firstTouchPoint = firstTouch
@@ -54,16 +66,6 @@ class ViewController: UIViewController {
             let touchPoint = firstEndedTouch.location(in: searchMap)
             let location = searchMap.convert(touchPoint, toCoordinateFrom: searchMap)
             mapLocationLastTouched = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueID = segue.identifier else { return }
-        switch segueID {
-        case ZomatoResources.Keys.pushResultsSegueID:
-            setBackButtonText(to: ZomatoResources.Strings.navigateHomeButton)
-            
-        default:()
         }
     }
 }

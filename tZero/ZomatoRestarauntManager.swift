@@ -5,6 +5,8 @@
 //  Created by Kenneth Cluff on 11/14/18.
 //  Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
+/// This is an example of how I utilize delegation to return results to a calling object.
+/// This also shows how I prefer to structure non-visual classes. Not the exposed method has help documentation and that all private/fileprivate methods are hidden in an extension. I prefer this to adding visibility modifiers. However, when the object is small enough, I'll use that approach.
 
 import UIKit
 import CoreLocation
@@ -15,13 +17,46 @@ protocol QueryCompleted: NSObjectProtocol {
 
 class ZomatoRestarauntManager: NSObject {
     static let shared = ZomatoRestarauntManager()
-    let restEngine = ZomatoRestEngine()
+    private let restEngine = ZomatoRestEngine()
     private(set) var restarauntList = [ZomatoRestaraunt]()
-    var totalNumberOfHits: Int = 0
-    var currentStart: Int = 0
-    var currentCount: Int = 20
-    var searchLocation: CLLocation?
+    private var totalNumberOfHits: Int = 0
+    private var currentStart: Int = 0
+    private var currentCount: Int = 20
+    private var searchLocation: CLLocation?
     weak var delegate: QueryCompleted?
+    
+    /**
+     search for restaurants near the point where the user taps the map
+     
+     - Author:
+     Ken Cluff
+     
+     - Returns:
+     This doesn't return a value. Responses are handled through a delegate callback
+     
+     - Parameters:
+     - location: A CLLocation object. It is not optional.
+     
+     This accepts a CLLocation object. The app then searches for nine restaurants nearest to that location. Call back to the calling view controller is handled through a delegate.
+     */
+    func fetchRestarauntsNear(_ location: CLLocation) {
+        searchLocation = location
+        reset()
+        fetchNextPage()
+    }
+    
+    func testBuildingRestaurantsFromTestFile_DONOTUSEOTHERWISE(_ testFile: [String: Any]) {
+        reset()
+        buildRestarauntList(from: testFile)
+    }
+}
+
+/// I prefer to group private methods needed for the class in an extension to hide them from the developer who needs to use this class for some purpose.
+fileprivate extension ZomatoRestarauntManager {
+    func buildRestarauntList(from json: [String: Any]) {
+        extractRestaraunts(from: json)
+        totalNumberOfHits = restarauntList.count
+    }
     
     func fetchNextPage() {
         guard let searchLocation = searchLocation,
@@ -53,12 +88,6 @@ class ZomatoRestarauntManager: NSObject {
         }
     }
     
-    func fetchRestarauntsNear(_ location: CLLocation) {
-        searchLocation = location
-        reset()
-        fetchNextPage()
-    }
-    
     func reset() {
         restarauntList.removeAll()
         totalNumberOfHits = 0
@@ -66,16 +95,11 @@ class ZomatoRestarauntManager: NSObject {
         currentCount = 20
     }
     
-    func buildRestarauntList(from json: [String: Any]) {
-        extractRestaraunts(from: json)
-        totalNumberOfHits = restarauntList.count
-    }
-    
-    private func getParameters(for location: CLLocation) -> SearchParameters {
+    func getParameters(for location: CLLocation) -> SearchParameters {
         return SearchParameters(start: currentStart, count: currentCount, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, radius: 10000, queryType: .get, queryTimeOut: 30)
     }
     
-    private func extractSummary(from json: [String: Any]) {
+    func extractSummary(from json: [String: Any]) {
         var found = 0
         var start = 0
         var current = 0
@@ -94,7 +118,7 @@ class ZomatoRestarauntManager: NSObject {
         current = currentValue
     }
     
-    private func extractRestaraunts(from json: [String: Any]) {
+    func extractRestaraunts(from json: [String: Any]) {
         guard let restaraunts = json[ZomatoResources.JSONKeys.nearbyRestaurants] as? [[String: Any]] else { return }
         var workingList = [ZomatoRestaraunt]()
         restaraunts.forEach({

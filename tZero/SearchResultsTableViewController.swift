@@ -11,6 +11,8 @@ import UIKit
 class SearchResultsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// This is an example of using an external object as the tableview datasource
         tableView.dataSource = ZomatoRestarauntManager.shared
     }
     

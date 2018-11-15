@@ -5,6 +5,9 @@
 // Created by Kenneth Cluff on 11/13/18.
 // Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
+/// This contains an enumeration which I use to define how many rows to put in a UITableViewController when used to display a fixed number of rows. Note how the 'stringValue' of the enumeration references the ZomatoResources struct. This facilitates localization.
+/// I prefer pushing logic down into the object closes to the data. Note the computed property in the UserRating object which converts the hex string passed in to the object to show the 'color' of the rating. I use this computed value so I don't have to deal with it in the view controller or tableview cell where the value is consumed.
+/// The inline comments on the struct properties are used to show what the API owner specified.
 
 import UIKit
 import MapKit

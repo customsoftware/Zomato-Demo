@@ -5,6 +5,8 @@
 //  Created by Kenneth Cluff on 11/15/18.
 //  Copyright © 2018 Kenneth Cluff. All rights reserved.
 //
+/// This is my preferred strategy for localization. Any place, not data, where a string is presented to the user is directed to this struct. This way, none of the 'NSLocalizeString' calls are in the view controllers or other objects, they are all located here. This is to facilitate maintenance of the UI strings when localization is required.
+/// Note the extension at the bottom of the page to handle a tedious process used in more than one location throughout the app.
 
 import UIKit
 
