@@ -1,2 +1,10 @@
 # Zomato-Demo
-This is a quick demo project
+This is a quick demo project which showcases my approach to the following application challenges:
+1.  It shows how I prefer to localize the app. While there are no localization files in this project, the app is structured to support them. My intent is to show how I manage localization through the use of a resource struct which contains all of the strings used in the app UI. See the ... for the resource strings and ... to see how they are used.
+2.  It has an example of how I use callback methods to handle results from asynchronous processes. These are typically used in REST calls to a server. See the _RestEngine.swift_ to see how this is implemented.
+3.  It has an example of how I use delegation to handle asynchronous calls to remote services. I typically use this approach when calling remote services such as reverse geocoding, or anything related to CoreLocation. An example of this is in _ZomatoRestarauntManager.swift_.
+4.  Utilization of UITableViewControllers to present a fixed set of data. I've found tableview controllers are very flexible and powerfull tools for presenting data to the user in a small space. I prefer to use an enumeration to list which units of data to present and then build the necessary coding infrastructure to do so. An example of this is here _ZomatoRestaraunt.swift_
+5.  Unit tests are crucial to any project. Especially when it involves REST calls. The unit tests in this app focus on confirming the efficacy of the REST calls and some associated methods. Look at _tZeroTests.swift_
+6.  I think documentation is best done through naming conventions: the property name and the method name should be self-describing. When a public or visible API call needs to be documented, then I prefer markdown as demonstrated here: _ZomatoRestarauntManager.swift_.
+
+In a production source control environment, I prefer a modified gitflow work flow. My preferred approach is to have the master branch contain the deployed production code. There will then be a developer branch which has the latest QA approved code. Smaller temporary branches are used to implement features or fix bugs. When these are approved by code review using Pull Requests, the branches are removed.
