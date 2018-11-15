@@ -42,18 +42,18 @@ struct ZomatoRestaraunt {
     var name: String? // Name of the restaurant
     var url: String? // URL of the restaurant page
     var location: ResLocation? // Restaurant location details
-    var average_cost_for_two: Int? // Average price of a meal for two people
-    var price_range: Int? // Price bracket of the restaurant (1 being pocket friendly and 4 being the costliest)
+    var averageCost: Int? // Average price of a meal for two people
+    var priceRange: Int? // Price bracket of the restaurant (1 being pocket friendly and 4 being the costliest)
     var currency: String? // Local currency symbol; to be used with price
     var thumb: String? // URL of the low resolution header image of restaurant
-    var featured_image: String? // URL of the high resolution header image of restaurant
-    var photos_url: String? // URL of the restaurant's photos page
-    var menu_url: String? // URL of the restaurant's menu page
-    var events_url: String? // URL of the restaurant's events page
+    var featuredImage: String? // URL of the high resolution header image of restaurant
+    var photosURL: String? // URL of the restaurant's photos page
+    var menuURL: String? // URL of the restaurant's menu page
+    var eventsURL: String? // URL of the restaurant's events page
     var user_rating: UserRating? // Restaurant rating details
-    var has_online_delivery: Bool? // Whether the restaurant has online delivery enabled or not
-    var is_delivering_now: Bool? // Valid only if has_online_delivery = 1; whether the restaurant is accepting online orders right now
-    var has_table_booking: Bool? // Whether the restaurant has table reservation enabled or not
+    var hasOnlineDeliver: Bool? // Whether the restaurant has online delivery enabled or not
+    var isDeliveringNow: Bool? // Valid only if has_online_delivery = 1; whether the restaurant is accepting online orders right now
+    var hasTableBooking: Bool? // Whether the restaurant has table reservation enabled or not
     var deeplink: String? // Short URL of the restaurant page; for use in apps or social
     var cuisines: String? // List of cuisines served at the restaurant in csv format
     
@@ -71,14 +71,14 @@ struct ZomatoRestaraunt {
                 self.location = ResLocation(locationData)
             }
             
-            self.average_cost_for_two = parameterJSON[ZomatoResources.JSONKeys.Restaurant.avgCostForTwo] as? Int
-            self.price_range = parameterJSON[ZomatoResources.JSONKeys.Restaurant.priceRange] as? Int
+            self.averageCost = parameterJSON[ZomatoResources.JSONKeys.Restaurant.avgCostForTwo] as? Int
+            self.priceRange = parameterJSON[ZomatoResources.JSONKeys.Restaurant.priceRange] as? Int
             
             if let userRatingData = parameterJSON[ZomatoResources.JSONKeys.Restaurant.rating] as? [String: Any] {
                 self.user_rating = UserRating(userRatingData)
             }
-            self.featured_image = parameterJSON[ZomatoResources.JSONKeys.Restaurant.featureImage] as? String
-            self.photos_url = parameterJSON[ZomatoResources.JSONKeys.Restaurant.photoURL] as? String
+            self.featuredImage = parameterJSON[ZomatoResources.JSONKeys.Restaurant.featureImage] as? String
+            self.photosURL = parameterJSON[ZomatoResources.JSONKeys.Restaurant.photoURL] as? String
             self.cuisines = parameterJSON[ZomatoResources.JSONKeys.Restaurant.cuisines] as? String
         }
     }
@@ -91,7 +91,7 @@ struct ResLocation {
     var latitude: Double? // Coordinates of the restaurant
     var longitude: Double? // Coordinates of the restaurant
     var zipcode: String? // Zipcode
-    var country_id: Int? // ID of the country
+    var countryID: Int? // ID of the country
     
     init(_ parameterJSON: [String: Any]) {
         self.address = parameterJSON[ZomatoResources.JSONKeys.Location.address] as? String
@@ -104,22 +104,22 @@ struct ResLocation {
             self.longitude = Double(longitude)
         }
         self.zipcode = parameterJSON[ZomatoResources.JSONKeys.Location.zipcode] as? String
-        self.country_id = parameterJSON[ZomatoResources.JSONKeys.Location.countryID] as? Int
+        self.countryID = parameterJSON[ZomatoResources.JSONKeys.Location.countryID] as? Int
     }
 }
 
 struct UserRating {
-    var aggregate_rating: Double? // Restaurant rating on a scale of 0.0 to 5.0 in increments of 0.1
-    var rating_text: String? // Short description of the rating
-    var rating_color: String? // Color hex code used with the rating on Zomato
+    var aggregateRating: Double? // Restaurant rating on a scale of 0.0 to 5.0 in increments of 0.1
+    var ratingText: String? // Short description of the rating
+    var ratingColor: String? // Color hex code used with the rating on Zomato
     var votes: Int? // Number of ratings received
     
     init(_ parameterJSON: [String: Any]) {
-        if let aggregate_rating = parameterJSON[ZomatoResources.JSONKeys.Rating.aggregate] as? String {
-            self.aggregate_rating = Double(aggregate_rating)
+        if let aggregateRating = parameterJSON[ZomatoResources.JSONKeys.Rating.aggregate] as? String {
+            self.aggregateRating = Double(aggregateRating)
         }
-        self.rating_text = parameterJSON[ZomatoResources.JSONKeys.Rating.text] as? String
-        self.rating_color = parameterJSON[ZomatoResources.JSONKeys.Rating.color] as? String
+        self.ratingText = parameterJSON[ZomatoResources.JSONKeys.Rating.text] as? String
+        self.ratingColor = parameterJSON[ZomatoResources.JSONKeys.Rating.color] as? String
         if let votes = parameterJSON[ZomatoResources.JSONKeys.Rating.votes] as? String {
             self.votes = Int(votes)
         }
@@ -127,7 +127,7 @@ struct UserRating {
     
     var color: UIColor {
         var retColor = UIColor.clear
-        guard let ratingColor = rating_color else { return retColor }
+        guard let ratingColor = ratingColor else { return retColor }
         var cString:String = ratingColor.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {

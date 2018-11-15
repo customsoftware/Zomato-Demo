@@ -50,7 +50,7 @@ class RestarauntSummaryCell: UITableViewCell {
             guard let owningRestaraunt = owningRestaraunt else { return }
             name.text = owningRestaraunt.name ?? ZomatoResources.Strings.defaultNotSet
             address.text = owningRestaraunt.cuisines ?? ZomatoResources.Strings.defaultNoneStated
-            rating.text = "\(owningRestaraunt.user_rating?.aggregate_rating ?? 0)"
+            rating.text = "\(owningRestaraunt.user_rating?.aggregateRating ?? 0)"
             rating.layer.borderColor = UIColor.darkGray.cgColor
             rating.layer.borderWidth = 1.03
             rating.backgroundColor = owningRestaraunt.user_rating?.color
