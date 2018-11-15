@@ -18,45 +18,16 @@ enum RestaurantDisplayItems: Int, CaseIterable {
     case map
     
     var stringValue: String {
-        var retValue = ""
+        var retValue = ZomatoResources.Strings.emtpyString
         switch self {
         case .address:
-            retValue = "Address"
+            retValue = ZomatoResources.Strings.enumCaptionAddress
         case .rating:
-            retValue = "User Rating"
+            retValue = ZomatoResources.Strings.enumCaptionRating
         case .cost:
-            retValue = "Cost"
+            retValue = ZomatoResources.Strings.enumCaptionCost
         case .map:
-            retValue = "Map"
-        }
-        
-        return retValue
-    }
-}
-
-enum UserRatingLevels: Int, CaseIterable {
-    case notRated
-    case poor
-    case average
-    case good
-    case veryGood
-    case best
-    
-    var bracketValue: String {
-        var retValue = ""
-        switch self {
-        case .notRated:
-            retValue = "Not rated"
-        case .poor:
-            retValue = "Poor"
-        case .average:
-            retValue = "Average"
-        case .good:
-            retValue = "Good"
-        case .veryGood:
-            retValue = "Very Good"
-        case .best:
-            retValue = "Best"
+            retValue = ZomatoResources.Strings.enumCaptionMap
         }
         
         return retValue
@@ -82,24 +53,6 @@ struct ZomatoRestaraunt {
     var has_table_booking: Bool? // (boolean, optional): Whether the restaurant has table reservation enabled or not ,
     var deeplink: String? // (string, optional): Short URL of the restaurant page; for use in apps or social
     var cuisines: String? // (string, optional): List of cuisines served at the restaurant in csv format ,
-
-    var userRatingText: String {
-        var retValue = UserRatingLevels.notRated
-        guard let aggregateRating = user_rating?.aggregate_rating else { return retValue.bracketValue }
-        if aggregateRating == 0 {
-            retValue = UserRatingLevels.notRated
-        } else if aggregateRating >= 4.0 {
-            retValue = UserRatingLevels.veryGood
-        } else if aggregateRating >= 3.5 {
-            retValue = UserRatingLevels.good
-        } else if aggregateRating >= 2.5 {
-            retValue = UserRatingLevels.average
-        } else if aggregateRating >= 1.5 {
-            retValue = UserRatingLevels.poor
-        }
-        
-        return retValue.bracketValue
-    }
     
     init(_ json: [String: Any]) {
         // TODO: For a production system, all of the properties specified in the API will need to be handled.

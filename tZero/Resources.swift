@@ -10,18 +10,22 @@ import Foundation
 
 struct ZomatoResources {
     struct Strings {
-        static let homeTitle = "Restaurant Search"
-        static let locationAnnotationTitle = "Looking Here"
-        static let howToTitle = "Instructions"
-        static let howToInstructions = "Tap on map to set location.\nThen tap search button to find restaurants."
-        static let okCaption = "OK"
-        static let defaultNotSet = "Not set"
-        static let defaultNoneStated = "None stated"
-        static let captionCostForTwo = "Avg. Cost for Two:"
+        static let homeTitle = NSLocalizedString("Restaurant Search", comment: "")
+        static let locationAnnotationTitle = NSLocalizedString("Looking Here", comment: "")
+        static let howToTitle = NSLocalizedString("Instructions", comment: "")
+        static let howToInstructions = NSLocalizedString("Tap on map to set location.\nThen tap search button to find restaurants.", comment: "")
+        static let okCaption = NSLocalizedString("OK", comment: "")
+        static let defaultNotSet = NSLocalizedString("Not set", comment: "")
+        static let defaultNoneStated = NSLocalizedString("None stated", comment: "")
+        static let captionCostForTwo = NSLocalizedString("Avg. Cost for Two:", comment: "")
         static let emtpyString = ""
-        static let captionPriceGroup = "Price Group:"
-        static let captionVotes = "votes"
-        static let captionHere = "Here"
+        static let captionPriceGroup = NSLocalizedString("Price Group:", comment: "")
+        static let captionVotes = NSLocalizedString("votes", comment: "")
+        static let captionHere = NSLocalizedString("Here", comment: "")
+        static let enumCaptionAddress = NSLocalizedString("Address", comment: "")
+        static let enumCaptionRating = NSLocalizedString("User Rating", comment: "")
+        static let enumCaptionCost = NSLocalizedString("Cost", comment: "")
+        static let enumCaptionMap = NSLocalizedString("Map", comment: "")
     }
     
     struct Keys {
