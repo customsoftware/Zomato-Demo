@@ -31,7 +31,7 @@ class ZomatoRestarauntManager: NSObject {
      - Author:
      Ken Cluff
      
-     - Returns:
+     - returns:
      This doesn't return a value. Responses are handled through a delegate callback
      
      - parameters:
