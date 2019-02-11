@@ -34,8 +34,8 @@ class ZomatoRestarauntManager: NSObject {
      - Returns:
      This doesn't return a value. Responses are handled through a delegate callback
      
-     - Parameters:
-     - location: A CLLocation object. It is not optional.
+     - parameters:
+        - location: A CLLocation object. It is not optional.
      
      This accepts a CLLocation object. The app then searches for nine restaurants nearest to that location. Call back to the calling view controller is handled through a delegate.
      */
